@@ -1,0 +1,48 @@
+﻿@model AgendaContatos.AppService.Models.ContatoModel
+
+@{
+    ViewData["Title"] = "Excluir contato";
+}
+
+<h2>Excluir contato</h2>
+
+<h3>Tem certeza que deseja excluir esse contato?</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Delete">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ContatoId" class="control-label"></label>
+                <input asp-for="ContatoId" class="form-control" readonly />
+                <span asp-validation-for="ContatoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContatoNome" class="control-label"></label>
+                <input asp-for="ContatoNome" class="form-control" readonly />
+                <span asp-validation-for="ContatoNome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContatoEmail" class="control-label"></label>
+                <input asp-for="ContatoEmail" class="form-control" readonly />
+                <span asp-validation-for="ContatoEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContatoCelular" class="control-label"></label>
+                <input asp-for="ContatoCelular" class="form-control" readonly />
+                <span asp-validation-for="ContatoCelular" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Excluir" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar para lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
